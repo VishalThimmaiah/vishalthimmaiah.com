@@ -16,3 +16,10 @@ document.querySelectorAll("nav a").forEach(link => {
         }, 500);
     });
 });
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('keydown', event => {
+    if (event.ctrlKey && (event.key === 'u' || event.key === 's')) {
+        event.preventDefault();
+    }
+});
