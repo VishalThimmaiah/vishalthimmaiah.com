@@ -154,3 +154,48 @@ nav {
         opacity: 1;
     }
 }
+/* Contact Me*/
+body {
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    color: gold;
+}
+
+.contact-form {
+    margin: 20px auto;
+    width: 50%;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    background: gold;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.instagram-btn {
+    display: inline-block;
+    background: #E1306C;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    margin-top: 30px;
+}
