@@ -49,9 +49,9 @@
 ### Forms & Communication
 - **React Hook Form 7.5+** - Form handling
 - **Zod 3.2+** - Schema validation
-- **Resend** - Email service
-- **React Email** - Email templates
-- **Next.js Server Actions** - Form processing
+- **Gmail SMTP** - Email service via Nodemailer
+- **Nodemailer** - Email sending library
+- **Next.js API Routes** - Form processing
 
 ### Development Tools
 - **pnpm** - Package manager

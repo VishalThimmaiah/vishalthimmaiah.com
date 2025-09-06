@@ -48,9 +48,8 @@ This document provides detailed technical specifications for the Vishal Thimmaia
 ### Email & Communication
 ```json
 {
-  "resend": "^4.0.1",
-  "react-email": "^3.0.1",
-  "@react-email/components": "^0.0.25"
+  "nodemailer": "^6.9.8",
+  "@types/nodemailer": "^6.4.14"
 }
 ```
 
@@ -243,53 +242,48 @@ const inter = Inter({
 
 ## 📧 Email System Architecture
 
-### 1. Resend Configuration
+### 1. Gmail SMTP Configuration
 ```typescript
 // lib/email.ts
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const transporter = nodemailer.createTransporter({
+  service: 'gmail',
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+})
 
 export async function sendContactEmail(data: ContactFormData) {
-  return await resend.emails.send({
-    from: 'portfolio@vishalthimmaiah.com',
-    to: 'vishal@vishalthimmaiah.com',
-    subject: `New Contact Form Submission from ${data.name}`,
-    react: ContactFormEmail(data),
+  return await transporter.sendMail({
+    from: process.env.GMAIL_USER,
+    to: process.env.GMAIL_USER, // Send to yourself
+    subject: `Portfolio Contact: New message from ${data.name}`,
+    html: `
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${data.name}</p>
+      <p><strong>Email:</strong> ${data.email}</p>
+      <p><strong>Message:</strong></p>
+      <p>${data.message.replace(/\n/g, '<br>')}</p>
+      <hr>
+      <p><em>Sent from your portfolio contact form</em></p>
+    `,
   })
 }
 ```
 
-### 2. Email Template Structure
-```typescript
-// emails/contact-form.tsx
-import {
-  Html,
-  Head,
-  Body,
-  Container,
-  Section,
-  Text,
-  Button,
-} from '@react-email/components'
+### 2. Gmail Setup Requirements
+```bash
+# Required Gmail Configuration Steps:
+# 1. Enable 2-Factor Authentication on Gmail
+# 2. Generate App Password in Google Account Settings
+# 3. Use App Password (not regular Gmail password)
+# 4. Set environment variables in .env.local
 
-export default function ContactFormEmail({ name, email, message }: ContactFormData) {
-  return (
-    <Html>
-      <Head />
-      <Body style={main}>
-        <Container style={container}>
-          <Section>
-            <Text style={heading}>New Contact Form Submission</Text>
-            <Text style={text}>Name: {name}</Text>
-            <Text style={text}>Email: {email}</Text>
-            <Text style={text}>Message: {message}</Text>
-          </Section>
-        </Container>
-      </Body>
-    </Html>
-  )
-}
+# Environment Variables:
+GMAIL_USER=your.email@gmail.com
+GMAIL_APP_PASSWORD=your-16-character-app-password
 ```
 
 ---
@@ -299,7 +293,8 @@ export default function ContactFormEmail({ name, email, message }: ContactFormDa
 ### 1. Environment Variables
 ```bash
 # .env.local
-RESEND_API_KEY=re_xxxxxxxxxx
+GMAIL_USER=your.email@gmail.com
+GMAIL_APP_PASSWORD=your-16-character-app-password
 NEXT_PUBLIC_SITE_URL=https://vishalthimmaiah.com
 ```
 
@@ -453,7 +448,8 @@ export function PersonStructuredData() {
 ```
 
 ### Environment Variables (Production)
-- `RESEND_API_KEY`: Email service API key
+- `GMAIL_USER`: Gmail account for sending emails
+- `GMAIL_APP_PASSWORD`: Gmail app-specific password
 - `NEXT_PUBLIC_SITE_URL`: Site URL for absolute links
 - `NODE_ENV`: Production environment flag
 

@@ -73,14 +73,16 @@ We're creating a **modern, professional website** that will replace your current
 - Instant feedback when someone makes a mistake
 - Works great on mobile devices
 
-### **Resend - Email Service**
-**What it is**: Reliable email delivery system
+### **Gmail SMTP - Email Service**
+**What it is**: Using your Gmail account to send contact form messages
 **Why we chose it**:
 - You'll never miss a message from potential clients
+- Uses your existing Gmail account (no new services needed)
 - Professional email delivery (won't go to spam)
 - Much better than your current Formspree setup
+- Completely self-reliant (no external dependencies)
 
-**Real benefit**: People can easily contact you, and you'll receive every message reliably.
+**Real benefit**: People can easily contact you, and you'll receive every message directly in your Gmail inbox.
 
 ---
 
