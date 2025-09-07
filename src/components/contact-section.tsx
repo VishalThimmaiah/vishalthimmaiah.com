@@ -40,7 +40,7 @@ const contactInfo = [
     icon: Mail,
     label: "Email",
     value: "hello@vishalthimmaiah.com",
-    href: "mailto:hello@vishalthimmaiah.com",
+    href: "mailto:vishalthimmaiah@gmail.com",
     color: "text-blue-600"
   }
 ]
