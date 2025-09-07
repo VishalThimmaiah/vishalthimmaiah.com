@@ -23,6 +23,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { BackgroundGradient } from "@/components/ui/background-gradient"
 import { PageWrapper } from "@/components/page-wrapper"
+import { useAnalytics } from "@/lib/hooks/use-analytics"
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -77,6 +78,7 @@ const socialLinks = [
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const { trackContactFormSubmission, trackNavigation } = useAnalytics()
 
   const {
     register,
@@ -102,15 +104,22 @@ export function ContactSection() {
 
       if (response.ok) {
         setSubmitStatus('success')
+        trackContactFormSubmission(true)
         reset()
       } else {
         setSubmitStatus('error')
+        trackContactFormSubmission(false, `HTTP ${response.status}`)
       }
-    } catch {
+    } catch (error) {
       setSubmitStatus('error')
+      trackContactFormSubmission(false, error instanceof Error ? error.message : 'Unknown error')
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const handleSocialClick = (platform: string, href: string) => {
+    trackNavigation(href, `social-${platform.toLowerCase()}`)
   }
 
   return (
@@ -270,6 +279,7 @@ export function ContactSection() {
                     href="https://www.instagram.com/direct/t/17844061985887692" 
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => handleSocialClick('Instagram-Support', 'https://www.instagram.com/direct/t/17844061985887692')}
                   >
                     Message Me on Instagram
                   </a>
@@ -295,6 +305,7 @@ export function ContactSection() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => handleSocialClick(social.name, social.href)}
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.8 + index * 0.1 }}
@@ -316,6 +327,7 @@ export function ContactSection() {
                   <div className="text-center">
                     <motion.a
                       href={contactInfo[0].href}
+                      onClick={() => handleSocialClick('Email', contactInfo[0].href)}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 1.2 }}

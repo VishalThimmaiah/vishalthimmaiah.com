@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { cn } from "@/lib/utils"
+import { useAnalytics } from "@/lib/hooks/use-analytics"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -20,6 +21,11 @@ const navItems = [
 export function Navigation() {
   const [isOpen, setIsOpen] = React.useState(false)
   const pathname = usePathname()
+  const { trackNavigation } = useAnalytics()
+
+  const handleNavClick = (href: string, name: string, source: string = 'desktop-nav') => {
+    trackNavigation(href, source)
+  }
 
   return (
     <motion.header
@@ -52,6 +58,7 @@ export function Navigation() {
             >
               <Link
                 href={item.href}
+                onClick={() => handleNavClick(item.href, item.name, 'desktop-nav')}
                 className={cn(
                   "relative px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
                   pathname === item.href
@@ -108,7 +115,10 @@ export function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  handleNavClick(item.href, item.name, 'mobile-nav')
+                  setIsOpen(false)
+                }}
                 className={cn(
                   "block px-3 py-2 text-sm font-medium rounded-md transition-colors",
                   pathname === item.href
