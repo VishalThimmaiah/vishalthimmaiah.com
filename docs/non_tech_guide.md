@@ -58,7 +58,7 @@ A modern, fast, and beautiful personal website that loads quickly, looks profess
 - **Why it's good**: Forms that don't break or frustrate visitors
 - **Benefit**: People can easily reach out to you
 
-### **Resend** - *The Email Sender*
+### **GMAIL** - *The Email Sender*
 - **What it does**: Sends you emails when someone fills out your contact form
 - **Why it's good**: Reliable email delivery (no more missed messages)
 - **Benefit**: You'll never miss a potential opportunity
