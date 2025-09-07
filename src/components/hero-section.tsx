@@ -56,7 +56,7 @@ export function HeroSection() {
   ]
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative flex-1 flex items-center justify-center overflow-hidden">
       {/* Spotlight Effect */}
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
       
