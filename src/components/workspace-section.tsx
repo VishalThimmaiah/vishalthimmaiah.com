@@ -17,6 +17,7 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { BackgroundGradient } from "@/components/ui/background-gradient"
+import { PageWrapper } from "@/components/page-wrapper"
 
 const projects = [
   {
@@ -122,7 +123,7 @@ const itemVariants = {
 
 export function WorkspaceSection() {
   return (
-    <div className="min-h-screen py-20">
+    <PageWrapper>
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -291,6 +292,6 @@ export function WorkspaceSection() {
           </BackgroundGradient>
         </motion.section>
       </div>
-    </div>
+    </PageWrapper>
   )
 }

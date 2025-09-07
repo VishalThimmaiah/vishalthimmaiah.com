@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button"
 import { BackgroundGradient } from "@/components/ui/background-gradient"
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
 import { Spotlight } from "@/components/ui/spotlight"
+import { PageWrapper } from "@/components/page-wrapper"
 
 const socialLinks = [
   {
@@ -56,7 +57,7 @@ export function HeroSection() {
   ]
 
   return (
-    <div className="relative flex-1 flex items-center justify-center overflow-hidden">
+    <PageWrapper className="relative flex items-center justify-center overflow-hidden">
       {/* Spotlight Effect */}
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
       
@@ -203,6 +204,6 @@ export function HeroSection() {
           </motion.div>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   )
 }

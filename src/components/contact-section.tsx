@@ -24,6 +24,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { BackgroundGradient } from "@/components/ui/background-gradient"
+import { PageWrapper } from "@/components/page-wrapper"
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -115,7 +116,7 @@ export function ContactSection() {
   }
 
   return (
-    <div className="min-h-screen py-20">
+    <PageWrapper>
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -332,6 +333,6 @@ export function ContactSection() {
           </motion.div>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   )
 }
