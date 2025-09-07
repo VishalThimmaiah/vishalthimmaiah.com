@@ -198,17 +198,6 @@ export function HeroSection() {
                     priority
                   />
                 </motion.div>
-                
-                {/* Floating Badge */}
-                <motion.div
-                  className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium shadow-lg"
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1.0 }}
-                  whileHover={{ scale: 1.1 }}
-                >
-                  Available for work
-                </motion.div>
               </div>
             </BackgroundGradient>
           </motion.div>
