@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -39,6 +39,22 @@ const socialLinks = [
 ]
 
 export function HeroSection() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Predefined positions to avoid hydration mismatch
+  const floatingElements = [
+    { left: 23.4, top: 28.3, duration: 3.2, delay: 0.5 },
+    { left: 36.2, top: 37.1, duration: 4.1, delay: 1.2 },
+    { left: 87.9, top: 84.2, duration: 3.8, delay: 0.8 },
+    { left: 86.2, top: 83.9, duration: 4.5, delay: 1.8 },
+    { left: 3.0, top: 51.2, duration: 3.5, delay: 0.3 },
+    { left: 65.0, top: 18.1, duration: 4.2, delay: 1.5 },
+  ]
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Spotlight Effect */}
@@ -47,28 +63,30 @@ export function HeroSection() {
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
       
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/20 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.8, 0.2],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
+      {/* Floating Elements - Only render on client */}
+      {mounted && (
+        <div className="absolute inset-0 overflow-hidden">
+          {floatingElements.map((element, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-primary/20 rounded-full"
+              style={{
+                left: `${element.left}%`,
+                top: `${element.top}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                opacity: [0.2, 0.8, 0.2],
+              }}
+              transition={{
+                duration: element.duration,
+                repeat: Infinity,
+                delay: element.delay,
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="container relative z-10 px-4 mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

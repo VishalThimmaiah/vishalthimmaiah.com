@@ -1,7 +1,21 @@
 {
-  "name": "temp-portfolio",
-  "version": "0.1.0",
+  "name": "vish-portfolio",
+  "version": "1.0.0",
   "private": true,
+  "description": "Modern portfolio website for Vishal Thimmaiah - IT Business Analyst",
+  "author": "Vishal Thimmaiah <hello@vishalthimmaiah.com>",
+  "homepage": "https://vishalthimmaiah.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VishalThimmaiah/vishalthimmaiah.com.git"
+  },
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "typescript",
+    "tailwindcss",
+    "shadcn-ui"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
