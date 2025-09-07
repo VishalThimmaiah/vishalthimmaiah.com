@@ -32,5 +32,6 @@
 
 	Cline rules:
 		1. Theme Compliance
-
+1. Vercel 
+	it is for hosting/deployment purpose. it can also provide option of storage(for files for application eg. hero image/vishal)
 
