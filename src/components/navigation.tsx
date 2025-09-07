@@ -28,7 +28,7 @@ export function Navigation() {
       transition={{ duration: 0.5 }}
       className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
     >
-      <div className="container flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -103,7 +103,7 @@ export function Navigation() {
           transition={{ duration: 0.3 }}
           className="md:hidden border-t bg-background"
         >
-          <nav className="container px-4 py-4 space-y-2">
+          <nav className="container mx-auto px-4 py-4 space-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}

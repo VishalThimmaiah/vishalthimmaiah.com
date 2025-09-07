@@ -88,7 +88,7 @@ export function HeroSection() {
         </div>
       )}
 
-      <div className="container relative z-10 px-4 mx-auto">
+      <div className="container mx-auto relative z-10 px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <motion.div
