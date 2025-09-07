@@ -4,7 +4,9 @@ import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowRight, Linkedin, Instagram, Twitter, Youtube } from "lucide-react"
+import { ArrowRight } from "lucide-react"
+import { FaLinkedin, FaInstagram, FaYoutube } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 
 import { Button } from "@/components/ui/button"
 import { BackgroundGradient } from "@/components/ui/background-gradient"
@@ -16,25 +18,25 @@ const socialLinks = [
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/vishalthimmaiah/",
-    icon: Linkedin,
+    icon: FaLinkedin,
     color: "hover:text-blue-600",
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/vishalthimmaiah/",
-    icon: Instagram,
+    icon: FaInstagram,
     color: "hover:text-pink-600",
   },
   {
-    name: "Twitter",
+    name: "X",
     href: "https://twitter.com/VishalThimmaiah",
-    icon: Twitter,
-    color: "hover:text-blue-400",
+    icon: FaXTwitter,
+    color: "hover:text-gray-800 dark:hover:text-white",
   },
   {
     name: "YouTube",
     href: "https://www.youtube.com/@vishalthimmaiah/",
-    icon: Youtube,
+    icon: FaYoutube,
     color: "hover:text-red-600",
   },
 ]

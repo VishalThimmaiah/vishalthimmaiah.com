@@ -3,18 +3,16 @@
 import React, { useState } from "react"
 import { motion } from "framer-motion"
 import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  Linkedin, 
-  Instagram, 
-  Twitter, 
-  Youtube,
-  MessageCircle,
-  CheckCircle,
-  AlertCircle
-} from "lucide-react"
+  FaLinkedin, 
+  FaInstagram, 
+  FaYoutube,
+  FaEnvelope,
+  FaPaperPlane,
+  FaComments,
+  FaCheckCircle,
+  FaExclamationCircle
+} from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -37,7 +35,7 @@ type FormData = z.infer<typeof formSchema>
 
 const contactInfo = [
   {
-    icon: Mail,
+    icon: FaEnvelope,
     label: "Email",
     value: "hello@vishalthimmaiah.com",
     href: "mailto:vishalthimmaiah@gmail.com",
@@ -49,28 +47,28 @@ const socialLinks = [
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/vishalthimmaiah/",
-    icon: Linkedin,
+    icon: FaLinkedin,
     color: "hover:text-blue-600",
     description: "Professional networking"
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/vishalthimmaiah/",
-    icon: Instagram,
+    icon: FaInstagram,
     color: "hover:text-pink-600",
     description: "Personal updates & lifestyle"
   },
   {
-    name: "Twitter",
+    name: "X",
     href: "https://twitter.com/VishalThimmaiah",
-    icon: Twitter,
-    color: "hover:text-blue-400",
+    icon: FaXTwitter,
+    color: "hover:text-gray-800 dark:hover:text-white",
     description: "Thoughts & industry insights"
   },
   {
     name: "YouTube",
     href: "https://www.youtube.com/@vishalthimmaiah/",
-    icon: Youtube,
+    icon: FaYoutube,
     color: "hover:text-red-600",
     description: "Video content & tutorials"
   }
@@ -147,7 +145,7 @@ export function ContactSection() {
             <Card className="h-full">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Send className="mr-3 h-6 w-6 text-primary" />
+                  <FaPaperPlane className="mr-3 h-6 w-6 text-primary" />
                   Send Message
                 </CardTitle>
                 <CardDescription>
@@ -209,7 +207,7 @@ export function ContactSection() {
                       animate={{ opacity: 1, y: 0 }}
                       className="flex items-center text-green-600 bg-green-50 dark:bg-green-900/20 p-3 rounded-md"
                     >
-                      <CheckCircle className="h-5 w-5 mr-2" />
+                      <FaCheckCircle className="h-5 w-5 mr-2" />
                       {`Message sent successfully! I'll get back to you soon.`}
                     </motion.div>
                   )}
@@ -220,7 +218,7 @@ export function ContactSection() {
                       animate={{ opacity: 1, y: 0 }}
                       className="flex items-center text-red-600 bg-red-50 dark:bg-red-900/20 p-3 rounded-md"
                     >
-                      <AlertCircle className="h-5 w-5 mr-2" />
+                      <FaExclamationCircle className="h-5 w-5 mr-2" />
                       Failed to send message. Please try again or contact me directly.
                     </motion.div>
                   )}
@@ -239,7 +237,7 @@ export function ContactSection() {
                     ) : (
                       <>
                         Send Message
-                        <Send className="ml-2 h-4 w-4" />
+                        <FaPaperPlane className="ml-2 h-4 w-4" />
                       </>
                     )}
                   </Button>
@@ -261,7 +259,7 @@ export function ContactSection() {
             <div className="w-full">
             <BackgroundGradient className="rounded-[22px] p-6 bg-background">
               <div className="text-center">
-                <MessageCircle className="mx-auto mb-4 h-12 w-12 text-primary" />
+                <FaComments className="mx-auto mb-4 h-12 w-12 text-primary" />
                 <h3 className="text-xl font-bold mb-2">Need Support?</h3>
                 <p className="text-muted-foreground mb-4">
                   {`If you ever need someone to talk to, reach out to me on Instagram. 
