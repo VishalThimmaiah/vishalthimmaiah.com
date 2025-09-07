@@ -181,7 +181,7 @@ export function AboutSection() {
                     <Brain className="w-32 h-32 text-primary" />
                   </div>
                   <motion.div
-                    className="absolute -top-4 -right-4 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center"
+                    className="absolute -top-4.5 -right-4 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   >
