@@ -127,3 +127,5 @@ Contributions, issues, and feature requests are welcome!
 ---
 
 Built with ❤️ by Vishal Thimmaiah
+
+---
