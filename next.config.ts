@@ -15,23 +15,6 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  // Redirects for SEO (www to non-www)
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.vishalthimmaiah.com',
-          },
-        ],
-        destination: 'https://vishalthimmaiah.com/:path*',
-        permanent: true,
-      },
-    ];
-  },
-
   // Headers for SEO and Security
   async headers() {
     return [
