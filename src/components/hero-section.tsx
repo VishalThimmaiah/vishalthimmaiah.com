@@ -13,32 +13,33 @@ import { BackgroundGradient } from "@/components/ui/background-gradient"
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
 import { Spotlight } from "@/components/ui/spotlight"
 import { PageWrapper } from "@/components/page-wrapper"
+import { pageContent } from "@/lib/content/seo-content"
 
 const socialLinks = [
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/vishalthimmaiah/",
-    icon: FaLinkedin,
-    color: "hover:text-blue-600",
-  },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/vishalthimmaiah/",
-    icon: FaInstagram,
-    color: "hover:text-pink-600",
-  },
-  {
-    name: "X",
-    href: "https://twitter.com/VishalThimmaiah",
-    icon: FaXTwitter,
-    color: "hover:text-gray-800 dark:hover:text-white",
-  },
-  {
-    name: "YouTube",
-    href: "https://www.youtube.com/@vishalthimmaiah/",
-    icon: FaYoutube,
-    color: "hover:text-red-600",
-  },
+	{
+		name: "LinkedIn",
+		href: "https://www.linkedin.com/in/vishalthimmaiah/",
+		icon: FaLinkedin,
+		color: "hover:text-blue-600",
+	},
+	{
+		name: "Instagram",
+		href: "https://www.instagram.com/vishalthimmaiah/",
+		icon: FaInstagram,
+		color: "hover:text-pink-600",
+	},
+	{
+		name: "X",
+		href: "https://twitter.com/VishalThimmaiah",
+		icon: FaXTwitter,
+		color: "hover:text-gray-800 dark:hover:text-white",
+	},
+	{
+		name: "YouTube",
+		href: "https://www.youtube.com/@vishalthimmaiah/",
+		icon: FaYoutube,
+		color: "hover:text-red-600",
+	},
 ]
 
 export function HeroSection() {
@@ -108,7 +109,7 @@ export function HeroSection() {
                 className="inline-block"
               >
                 <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                  Welcome to my portfolio
+                  {pageContent.home.hero.badge}
                 </span>
               </motion.div>
               
@@ -125,7 +126,7 @@ export function HeroSection() {
               </motion.h1>
               
               <TextGenerateEffect
-                words="IT Business Analyst with a passion for technology, fitness, and creative visual arts. A true jack of all trades, I thrive on building a strong personal brand and exploring new ways to innovate and inspire."
+                words={pageContent.home.hero.subtitle}
                 className="text-lg md:text-xl text-muted-foreground max-w-2xl"
               />
             </div>
@@ -139,12 +140,12 @@ export function HeroSection() {
             >
               <Button asChild size="lg" className="group">
                 <Link href="/about">
-                  Learn More About Me
+                  {pageContent.home.hero.cta.primary}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/contact">Get In Touch</Link>
+                <Link href="/contact">{pageContent.home.hero.cta.secondary}</Link>
               </Button>
             </motion.div>
 
@@ -155,7 +156,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 1.4 }}
               className="flex items-center space-x-4"
             >
-              <span className="text-sm text-muted-foreground">Connect with me:</span>
+              <span className="text-sm text-muted-foreground">{pageContent.home.hero.socialPrompt}</span>
               <div className="flex space-x-3">
                 {socialLinks.map((social, index) => (
                   <motion.a
