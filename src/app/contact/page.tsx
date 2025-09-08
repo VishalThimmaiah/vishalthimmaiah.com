@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 	description: pageContent.contact.description,
 	keywords: pageContent.contact.keywords,
 	alternates: {
-		canonical: '/contact',
+		canonical: 'https://vishalthimmaiah.com/contact',
 	},
 	openGraph: {
 		title: pageContent.contact.title,

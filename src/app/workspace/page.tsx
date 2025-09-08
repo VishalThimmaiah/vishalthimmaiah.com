@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 	description: pageContent.workspace.description,
 	keywords: pageContent.workspace.keywords,
 	alternates: {
-		canonical: '/workspace',
+		canonical: 'https://vishalthimmaiah.com/workspace',
 	},
 	openGraph: {
 		title: pageContent.workspace.title,
