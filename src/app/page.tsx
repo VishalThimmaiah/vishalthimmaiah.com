@@ -1,6 +1,26 @@
-import { HeroSection } from "@/components/hero-section"
+import { HeroSection } from "@/components/hero-section";
 
-// Test branch - for development and testing new features
 export default function Home() {
-  return <HeroSection />
+	return (
+		<>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "BreadcrumbList",
+						"itemListElement": [
+							{
+								"@type": "ListItem",
+								"position": 1,
+								"name": "Home",
+								"item": "https://vishalthimmaiah.com"
+							}
+						]
+					}),
+				}}
+			/>
+			<HeroSection />
+		</>
+	);
 }
